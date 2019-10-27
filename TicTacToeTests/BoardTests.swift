@@ -20,9 +20,11 @@ class BoardTests: XCTestCase {
         
         let p = Player.O
         
-        let r = b.setState(to: 10, player: p)
-        
+        let r = b.setState(to: 9, player: p)
         XCTAssertEqual(r, BoardResult.error(.notValidIndex))
+        
+        let r2 = b.setState(to: -1, player: p)
+        XCTAssertEqual(r2, BoardResult.error(.notValidIndex))
         
     }
     

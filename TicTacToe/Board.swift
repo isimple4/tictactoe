@@ -46,7 +46,7 @@ struct Board {
     }
     
     mutating func setState(to index: Int, player: Player) -> BoardResult {
-        guard index < n*n else { return .error(.notValidIndex) }
+        guard index < n*n && index >= 0 else { return .error(.notValidIndex) }
         let state = getState(from: index)
         guard state == .notSet else { return BoardResult.error(.unexpectedClick) }
         
